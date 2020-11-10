@@ -5,31 +5,31 @@ using UnityEngine.UI;
 
 public class OutCanvasCulling : MonoBehaviour
 {
-    Vector3 pos;
-    float x, y, z;
-    int i = 0;
+    
+    
     [SerializeField]
     private Image outCanvas;
+
+    [SerializeField]
+    private GameObject canvas = null;
+
+
     void Start()
     {
         TestCulling2();
-
     }
 
     private void TestCulling2()
     {
-        for(i = 0; i <= 10000; i++)
+        float x, y, z = 0;
+        for (int i = 0; i <= 100; i++)
         {
-            GameObject canvas = GameObject.Find("Test");
-            Image hit = Instantiate(outCanvas, transform.position, Quaternion.identity);
-            hit.transform.SetParent(canvas.transform, false);
             x = Random.Range(-1000, -100);
             y = Random.Range(0, 1000);
-            z = 0;
-            pos = new Vector3(x, y, z);
-            hit.transform.position = pos;
+            outCanvas = Instantiate(outCanvas,new Vector3(x,y,z), Quaternion.identity, canvas.transform);
         }
         
         
     }
+
 }

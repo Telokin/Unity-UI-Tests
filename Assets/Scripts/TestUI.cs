@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,34 +12,31 @@ public class TestUI : MonoBehaviour
     [SerializeField]
     private Image inCanvas;
 
-    
+    [SerializeField]
+    private GameObject canvas = null;
 
     [SerializeField]
-    private TextMeshProUGUI testText;
+    private TextMeshProUGUI fpsText = null;
 
-    Vector3 pos;
-    float x, y, z;
-
-    public Text fpsText;
-    public float deltaTime;
+    float avgFramerate;
+    string display = "{0} FPS";
     int i = 0;
+
+    private Coroutine saveFps = null;
 
     // Start is called before the first frame update
 
     void Update()
     {
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil(fps).ToString();
-
-        
-        Debug.Log(Time.time);
+        avgFramerate = 1 / Time.unscaledDeltaTime;
+        fpsText.text = string.Format(display, avgFramerate.ToString());
     }
 
 
 
     void Start()
     {
+        saveFps = StartCoroutine(SaveIt());
         //Test();
         //TestTextMeshPro();
         //TestCulling();
@@ -64,7 +62,7 @@ public class TestUI : MonoBehaviour
 
     private void TestCulling()
     {
-        GameObject canvas = GameObject.Find("Child");
+
         //if (Time.deltaTime <= 10)
         //{
 
@@ -79,17 +77,26 @@ public class TestUI : MonoBehaviour
 
         //}
 
-        for (i = 0; i <= 500; i++)
+        float x, y, z = 0;
+        for (int i = 0; i <= 100; i++)
         {
-            Image hit = Instantiate(inCanvas, transform.position, Quaternion.identity);
-            hit.transform.SetParent(canvas.transform, false);
-            x = Random.Range(0, 1000);
-            y = Random.Range(0, 400);
-            z = 0;
-            pos = new Vector3(x, y, z);
-            hit.transform.position = pos;
+            x = UnityEngine.Random.Range(-1000, -100);
+            y = UnityEngine.Random.Range(0, 1000);
+            inCanvas = Instantiate(inCanvas, new Vector3(x, y, z), Quaternion.identity, canvas.transform);
+        }
+    }
+
+    private IEnumerator SaveIt()
+    {
+        int i = 0;
+
+        for(i=0; i<=100; i++)
+        {
+            yield return new WaitForSeconds(5);
+            // Save current fps in csv file
         }
 
+        yield return null;
     }
 
     
