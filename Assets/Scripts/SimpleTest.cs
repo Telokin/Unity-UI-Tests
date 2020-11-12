@@ -13,9 +13,9 @@ public class SimpleTest : MonoBehaviour
     private TextMeshProUGUI testTextTwo = null;
 
     private readonly int maxLogCount = 1000;
-    int i = 0;
-    private int logCount = 0;
-    private Dictionary<int, int> dataCollected = new Dictionary<int, int>();
+    public string test;
+    public int logCount = 0;
+    public static Dictionary<int, int> dataCollected = new Dictionary<int, int>();
 
     private void Update()
     {
@@ -25,24 +25,33 @@ public class SimpleTest : MonoBehaviour
         AddLog();
     }
 
-    private void AddLog()
+    public void AddLog()
     {
-
+        int currentFPS = (int)(1 / Time.unscaledDeltaTime);
         testTextOne.text = "TestLog nr " + (logCount + 1).ToString();
-        testTextTwo.text = "FPS: " + (int)(1 / Time.unscaledDeltaTime);
-        Debug.Log("TestLog nr " + logCount + 1);
+        testTextTwo.text = "FPS: " + currentFPS.ToString();
+        //Debug.Log("TestLog nr " + logCount + 1);
         logCount++;
 
         if (logCount % 100 == 0)
             AddData();
     }
 
-    private void AddData()
+    public void AddData()
     {
-        dataCollected.Add(logCount, (int)(1 / Time.unscaledDeltaTime));
-       Debug.LogWarning("DataCount: " + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + (int)(1 / Time.unscaledDeltaTime));
+        int currentFPS = (int)(1 / Time.unscaledDeltaTime);
+        dataCollected.Add(logCount, currentFPS);
+        foreach (KeyValuePair<int, int> thisKey in dataCollected)
+        {
+            test += string.Format("{0}, {1}\n", thisKey.Key, thisKey.Value);
+        }
+        //Debug.LogWarning("DataCount: " + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
+        Debug.Log("<color=green>Test data: </color>" + test);
+    }
 
-
+    public static void Test()
+    {
+        
     }
 
 }
