@@ -1,66 +1,53 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public static class CreateCSV
+public class CreateCSV : MonoBehaviour
 {
-    
+    private SimpleTest simpleTest;
 
     private static string reportDirectoryName = "Report";
     private static string reportFileName = "report.csv";
-    private static string reportSeparator = ";";
-    private static string[] reportHeaders = new string[2] {
-        "LogCount",
-        "CurrentFPS"
-    };
-    private static string timeStampHeader = "time stamp";
+    //private string reportSeparator = ";";
+    //private static string timeStampHeader = "time stamp";
 
     #region Interactions
 
-    public static void AppendToReport(string[] strings)
+    public void AppendToReport()
     {
         VerifyDirectory();
-        VerifyFile();
+        //VerifyFile();
         using (StreamWriter sw = File.AppendText(GetFilePath()))
         {
-            string finalString = "";
-            for (int i = 0; i < strings.Length; i++)
-            {
-                if (finalString != "")
-                {
-                    finalString += reportSeparator;
-                }
-                finalString += strings[i];
-            }
-            finalString += reportSeparator + GetTimeStamp();
-            sw.WriteLine(finalString);
+                foreach (var entry in simpleTest.dataCollected)
+                    sw.WriteLine("[{0} {1};]", entry.Key, entry.Value);
         }
     }
 
-    public static void CreateReport()
-    {
-        VerifyDirectory();
-        using (StreamWriter sw = File.CreateText(GetFilePath()))
-        {
-            string finalString = "";
-            for (int i = 0; i < reportHeaders.Length; i++)
-            {
-                if (finalString != "")
-                {
-                    finalString += reportSeparator;
-                }
-                finalString += reportHeaders[i];
-            }
-            finalString += reportSeparator + timeStampHeader;
-            sw.WriteLine(finalString);
-        }
-    }
+    //public void CreateReport()
+    //{
+    //    VerifyDirectory();
+    //    using (StreamWriter sw = File.CreateText(GetFilePath()))
+    //    {
+    //        //string finalString = "";
+    //        //for (int i = 0; i < reportHeaders.Length; i++)
+    //        //{
+    //        //if (finalString != "")
+    //        //    {
+    //        //        finalString += reportSeparator;
+    //        //    }
+    //        ////    finalString += reportHeaders[i];
+    //        ////}
+    //        //finalString += reportSeparator + timeStampHeader;
+    //        //sw.WriteLine(finalString);
+    //    }
+    //}
 
     #endregion
 
 
     #region Operations
 
-    static void VerifyDirectory()
+     void VerifyDirectory()
     {
         string dir = GetDirectoryPath();
         if (!Directory.Exists(dir))
@@ -69,34 +56,38 @@ public static class CreateCSV
         }
     }
 
-    static void VerifyFile()
-    {
-        string file = GetFilePath();
-        if (!File.Exists(file))
-        {
-            CreateReport();
-        }
-    }
+    //void VerifyFile()
+    //{
+    //    string file = GetFilePath();
+    //    if (!File.Exists(file))
+    //    {
+    //        CreateReport();
+    //    }
+    //    else
+    //    {
+    //        CreateReport();
+    //    }
+    //}
 
     #endregion
 
 
     #region Queries
 
-    static string GetDirectoryPath()
+     string GetDirectoryPath()
     {
         return Application.dataPath + "/" + reportDirectoryName;
     }
 
-    static string GetFilePath()
+     string GetFilePath()
     {
         return GetDirectoryPath() + "/" + reportFileName;
     }
 
-    static string GetTimeStamp()
-    {
-        return System.DateTime.UtcNow.ToString();
-    }
+    //static string GetTimeStamp()
+    //{
+    //    return System.DateTime.UtcNow.ToString();
+    //}
 
     #endregion
 }
