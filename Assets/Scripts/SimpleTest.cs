@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SimpleTest : MonoBehaviour
 {
-    private CreateCSV createCSV;
 
     [SerializeField]
     private TextMeshProUGUI testTextOne = null;
@@ -16,6 +15,7 @@ public class SimpleTest : MonoBehaviour
     private readonly int maxLogCount = 200;
     public string test;
     public int logCount = 0;
+    public int currentFPS =0;
     public Dictionary<int, int> dataCollected = new Dictionary<int, int>();
 
     private void Update()
@@ -29,7 +29,7 @@ public class SimpleTest : MonoBehaviour
 
     public void AddLog()
     {
-        int currentFPS = (int)(1 / Time.unscaledDeltaTime);
+        currentFPS = (int)(1 / Time.unscaledDeltaTime);
         testTextOne.text = "TestLog nr " + (logCount + 1).ToString();
         testTextTwo.text = "FPS: " + currentFPS.ToString();
         //Debug.Log("TestLog nr " + logCount + 1);
@@ -41,16 +41,15 @@ public class SimpleTest : MonoBehaviour
 
     public void AddData()
     {
-        int currentFPS = (int)(1 / Time.unscaledDeltaTime);
+        currentFPS = (int)(1 / Time.unscaledDeltaTime);
         dataCollected.Add(logCount, currentFPS);
         
         //Debug.LogWarning("DataCount: " + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
         Debug.Log("<color=green>DataCount: </color>" + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
-        if (logCount % 200 == 0)
+        if(logCount % 200 == 0)
         {
-            createCSV.AppendToReport();
-            Debug.Log("<color=green>Raport created</color>");
+            CreateCSV.AppendToReport(this);
+            Debug.Log("<color=yellow>File created</color>");
         }
     }
-
 }

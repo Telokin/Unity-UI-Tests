@@ -1,53 +1,39 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public class CreateCSV : MonoBehaviour
+public static class CreateCSV
 {
-    private SimpleTest simpleTest;
 
     private static string reportDirectoryName = "Report";
     private static string reportFileName = "report.csv";
-    //private string reportSeparator = ";";
-    //private static string timeStampHeader = "time stamp";
 
     #region Interactions
-
-    public void AppendToReport()
+    public static void AppendToReport(SimpleTest simpleTest)
     {
+        VerifyFile();
         VerifyDirectory();
-        //VerifyFile();
+        
+        
+        Debug.Log("<color=red>Verified</color>");
+        ExecuteReport data = new ExecuteReport(simpleTest);
         using (StreamWriter sw = File.AppendText(GetFilePath()))
         {
-                foreach (var entry in simpleTest.dataCollected)
-                    sw.WriteLine("[{0} {1};]", entry.Key, entry.Value);
+            foreach (var item in data.savedData)
+            {
+                sw.WriteLine("[{0} {1}]", item.Key, item.Value + ";");
+            }
+
+            Debug.Log("<color=red>Saved</color>");
         }
     }
 
-    //public void CreateReport()
-    //{
-    //    VerifyDirectory();
-    //    using (StreamWriter sw = File.CreateText(GetFilePath()))
-    //    {
-    //        //string finalString = "";
-    //        //for (int i = 0; i < reportHeaders.Length; i++)
-    //        //{
-    //        //if (finalString != "")
-    //        //    {
-    //        //        finalString += reportSeparator;
-    //        //    }
-    //        ////    finalString += reportHeaders[i];
-    //        ////}
-    //        //finalString += reportSeparator + timeStampHeader;
-    //        //sw.WriteLine(finalString);
-    //    }
-    //}
 
     #endregion
 
 
     #region Operations
 
-     void VerifyDirectory()
+    private static void VerifyDirectory()
     {
         string dir = GetDirectoryPath();
         if (!Directory.Exists(dir))
@@ -55,39 +41,31 @@ public class CreateCSV : MonoBehaviour
             Directory.CreateDirectory(dir);
         }
     }
+    public static void VerifyFile()
+    {
+        string file = GetFilePath();
+        if (File.Exists(file))
+        {
+           File.Delete(file);
+        }
 
-    //void VerifyFile()
-    //{
-    //    string file = GetFilePath();
-    //    if (!File.Exists(file))
-    //    {
-    //        CreateReport();
-    //    }
-    //    else
-    //    {
-    //        CreateReport();
-    //    }
-    //}
+
+    }
+
 
     #endregion
 
 
     #region Queries
 
-     string GetDirectoryPath()
+    static string GetDirectoryPath()
     {
         return Application.dataPath + "/" + reportDirectoryName;
     }
 
-     string GetFilePath()
+     static string GetFilePath()
     {
         return GetDirectoryPath() + "/" + reportFileName;
     }
-
-    //static string GetTimeStamp()
-    //{
-    //    return System.DateTime.UtcNow.ToString();
-    //}
-
     #endregion
 }

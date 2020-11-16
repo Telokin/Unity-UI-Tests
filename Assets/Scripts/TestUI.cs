@@ -20,7 +20,7 @@ public class TestUI : MonoBehaviour
 
     float avgFramerate;
     string display = "{0} FPS";
-    int i = 0;
+
 
     private Coroutine saveFps = null;
 
