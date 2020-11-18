@@ -12,10 +12,11 @@ public class SimpleTest : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI testTextTwo = null;
 
-    private readonly int maxLogCount = 200;
-    public string test;
-    public int logCount = 0;
-    public int currentFPS =0;
+    [SerializeField]
+    private int maxLogCount = 200;
+
+    private int logCount = 0;
+    private int currentFPS =0;
     public Dictionary<int, int> dataCollected = new Dictionary<int, int>();
 
     private void Update()
@@ -30,12 +31,12 @@ public class SimpleTest : MonoBehaviour
     public void AddLog()
     {
         currentFPS = (int)(1 / Time.unscaledDeltaTime);
-        testTextOne.text = "TestLog nr " + (logCount + 1).ToString();
-        testTextTwo.text = "FPS: " + currentFPS.ToString();
-        //Debug.Log("TestLog nr " + logCount + 1);
+        //testTextOne.text = "TestLog nr " + (logCount + 1).ToString();
+        //testTextTwo.text = "FPS: " + currentFPS.ToString();
+        Debug.Log("TestLog nr " + logCount + 1);
         logCount++;
 
-        if (logCount % 100 == 0)
+        //if (logCount % 100 == 0)
             AddData();
     }
 
@@ -43,13 +44,11 @@ public class SimpleTest : MonoBehaviour
     {
         currentFPS = (int)(1 / Time.unscaledDeltaTime);
         dataCollected.Add(logCount, currentFPS);
-        
-        //Debug.LogWarning("DataCount: " + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
-        Debug.Log("<color=green>DataCount: </color>" + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
-        if(logCount % 200 == 0)
+        //Debug.Log("<color=green>DataCount: </color>" + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
+        if(logCount % maxLogCount == 0)
         {
             CreateCSV.AppendToReport(this);
-            Debug.Log("<color=yellow>File created</color>");
+            //Debug.Log("<color=yellow>File created</color>");
         }
     }
 }

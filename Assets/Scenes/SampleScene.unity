@@ -297,7 +297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000099651015}
+  m_AnchoredPosition: {x: 0, y: 0.0001167438}
   m_SizeDelta: {x: 0, y: 281.73694}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &370173170
@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000005432611}
+  m_AnchoredPosition: {x: 0, y: 0.00017014901}
   m_SizeDelta: {x: 0, y: 281.73694}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &471432391
@@ -994,16 +994,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948051355}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e7bc3e9a8e15c46bcd6a87c292ca3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   testTextOne: {fileID: 0}
   testTextTwo: {fileID: 0}
-  test: 
-  logCount: 0
-  currentFPS: 0
+  maxLogCount: 200
 --- !u!1 &1054428307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1120,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1334520459}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999183
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1927,7 +1925,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 174877220}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999918
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2318,6 +2316,7 @@ GameObject:
   - component: {fileID: 2094185374}
   - component: {fileID: 2094185373}
   - component: {fileID: 2094185378}
+  - component: {fileID: 2094185379}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2332,7 +2331,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094185372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2415f65167a6ed74fb86f6174adf8a6e, type: 3}
   m_Name: 
@@ -2431,13 +2430,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094185372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e7bc3e9a8e15c46bcd6a87c292ca3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   testTextOne: {fileID: 370173170}
   testTextTwo: {fileID: 471432391}
-  test: 
-  logCount: 0
-  currentFPS: 0
+  maxLogCount: 5000
+--- !u!114 &2094185379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094185372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fd88ff7dfae4142a74e856a4421582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLogCount: 16
