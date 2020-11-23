@@ -9,32 +9,56 @@ public class FPSTest : MonoBehaviour
     [SerializeField]
     private int maxLogCount = 16;
 
+    [SerializeField]
+    private float saveEverySample = 0;
+
     private float currentFPS;
-    private float start;
+    private float startTime;
+    private float startFrame;
+    private float avgFPS;
+
+    private int logs = 0;
     private int logCount = 0;
+    private int i;
     private Dictionary<int, float> dataCollected = new Dictionary<int, float>();
 
     private static string reportFileName = "report.csv";
     private static string reportDirectoryName = "StreamingAssets";
+
+    void Update()
+    {
+        
+        //Debug.LogWarning("<color=red>Log</color>" + logs++);
+        //Debug.LogWarning("<color=yellow>Log</color>" + logs++);
+        //Debug.LogWarning("<color=blue>Log</color>" + logs++);
+
+            for (i = 0; i < 1000; i++)
+            {
+                Debug.LogWarning(logs++);
+            }
+
+
+
+    }
     private IEnumerator Start()
     {
-        start = Time.frameCount/Time.time;
+        startTime = Time.time;
+        startFrame = Time.frameCount;
+        //dataCollected.Clear();
         var directoryPath = Application.dataPath + "/" + reportDirectoryName;
-        Debug.Log("<color=red>FrameCount</color>");
-        Debug.Log(directoryPath + "/" + reportFileName);
         do
         {
-            yield return new WaitForSeconds(0.5f);
-            Debug.Log("TestLog nr " + logCount);
+            yield return new WaitForSeconds(1f);
+            //Debug.Log("TestLog nr " + logCount);
             logCount++;
-            currentFPS = Time.frameCount/Time.time;
-            //dataCollected.Add(logCount, currentFPS);
-
-            if (logCount % 5 == 0)
+            currentFPS = (float)Time.frameCount / Time.time;
+            avgFPS += currentFPS;
+            if (logCount % saveEverySample == 0)
             {
-                currentFPS = currentFPS - start;
+                currentFPS = (avgFPS/ saveEverySample) - (startTime/startFrame);
                 dataCollected.Add(logCount, currentFPS);
-                Debug.Log("<color=green>DataCount: </color>" + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
+                avgFPS = 0;
+               Debug.Log("<color=green>DataCount: </color>" + dataCollected.Count + " | LogCount: " + logCount + " | CurrentFPS: " + currentFPS);
                 yield return null;
             }
 
@@ -47,9 +71,11 @@ public class FPSTest : MonoBehaviour
         }
         else
         {
+            File.Delete(reportFileName);
             File.WriteAllLines(directoryPath + "/" + reportFileName, dataCollected.Select(x => x.Key + ";" + x.Value).ToArray());
         }
         Debug.Log("Save");
+        Debug.Break();
         yield return null;
     }
 }

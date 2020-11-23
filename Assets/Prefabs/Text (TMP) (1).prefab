@@ -98,8 +98,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0012512, y: 80}
-  m_SizeDelta: {x: 821.24756, y: 210}
+  m_AnchoredPosition: {x: -0.0018845, y: 0}
+  m_SizeDelta: {x: 616.0038, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2123231822538978832
 CanvasRenderer:
@@ -128,133 +128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed auctor
-    dolor. Proin malesuada libero luctus leo interdum, ac dictum lectus commodo.
-    Nulla dictum a justo quis sollicitudin. Morbi varius erat et nunc scelerisque,
-    at cursus mi rhoncus. Nullam hendrerit elit ac urna posuere elementum. Nulla
-    vel nisi tempus eros pulvinar congue vel condimentum purus. Pellentesque in mattis
-    mi. Nam fringilla malesuada nibh et porttitor. Proin ac sodales mi, et auctor
-    metus. Duis scelerisque eu metus vel tristique. Nullam libero justo, ultricies
-    non eros eget, dapibus luctus quam. In quis urna ut felis ultrices pellentesque
-    sit amet vitae ipsum.
-
-    
-
-    Phasellus lobortis convallis lectus, a dignissim
-    purus blandit sed. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-    In dui quam, aliquet molestie facilisis eu, fermentum id ante. Morbi scelerisque
-    porta odio a facilisis. Maecenas rutrum neque a nulla faucibus viverra. Interdum
-    et malesuada fames ac ante ipsum primis in faucibus. Suspendisse tincidunt porta
-    eros, vel posuere orci eleifend sed.
-
-    
-
-    In hac habitasse platea dictumst.
-    Donec a sollicitudin ligula. Integer purus magna, blandit ut lectus vitae, laoreet
-    molestie sapien. Aliquam urna nibh, tincidunt in sagittis ac, consectetur at
-    elit. Aliquam condimentum erat ut purus pulvinar dignissim. Quisque congue turpis
-    vel ante vestibulum, nec dictum neque sollicitudin. Vestibulum sed dolor sed
-    eros interdum tristique ut vitae eros. Fusce elit est, porta vitae elementum
-    ut, convallis tempor elit. Nullam in lectus at augue dapibus cursus nec eu lorem.
-
-    
-
-    Pellentesque
-    dapibus ornare ante, quis aliquam ex sodales vitae. Etiam porta nisi a sollicitudin
-    venenatis. Morbi aliquam dignissim quam, nec vulputate orci. Donec dapibus nisl
-    arcu, at scelerisque enim ultricies in. Praesent quis risus turpis. Nullam urna
-    dui, lobortis vitae mauris quis, commodo malesuada urna. Sed finibus lobortis
-    posuere. Nullam libero diam, pulvinar ac quam vel, porta faucibus justo. Donec
-    euismod fringilla accumsan.
-
-    
-
-    Donec sem dui, feugiat faucibus porttitor
-    eu, vestibulum sit amet augue. Mauris ultrices rhoncus dolor, nec sollicitudin
-    purus malesuada nec. Cras ultricies metus ac lectus pretium, vel egestas dolor
-    dignissim. Integer egestas porttitor placerat. Lorem ipsum dolor sit amet, consectetur
-    adipiscing elit. Mauris lacinia ornare dui in auctor. Ut ultricies consequat
-    massa sit amet posuere. Duis at vulputate enim. Aenean molestie neque ligula,
-    ultricies pretium magna blandit in. Cras vulputate ultrices tellus a volutpat.
-    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-    turpis egestas. Morbi lectus turpis, eleifend sed tortor at, eleifend sagittis
-    urna. Etiam sit amet ex quam.
-
-    
-
-    Donec dui leo, fringilla sed lacus
-    sed, tincidunt tempor tellus. Aliquam nibh est, bibendum at enim in, sagittis
-    vulputate turpis. Duis eu mi sit amet eros volutpat dictum sit amet sagittis
-    lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-    cubilia curae; Fusce vestibulum bibendum velit, eget vulputate est auctor eget.
-    Aenean purus dolor, iaculis vel pretium sed, porttitor euismod dolor. In eu tempus
-    tellus.
-
-    
-
-    Vivamus gravida nisi quis lorem faucibus, at dignissim est
-    elementum. Nam sodales purus at velit auctor cursus. Phasellus sed condimentum
-    quam, non scelerisque nisl. Pellentesque lacus turpis, dignissim eu sapien ac,
-    lobortis luctus justo. Vivamus nec condimentum erat, ut iaculis sapien. Donec
-    vitae ante et diam hendrerit pretium. Donec aliquet nunc sapien, vel mollis justo
-    viverra quis. Nulla commodo leo in ultrices rhoncus. Maecenas ac lacinia magna.
-    Donec in ullamcorper dolor. Cras tincidunt metus sem, non dapibus mauris fringilla
-    eu. Curabitur ut eleifend sapien, eu pellentesque turpis. Praesent nisl elit,
-    vestibulum vel posuere commodo, tempus congue urna. Praesent non nisi lacinia,
-    hendrerit sem eget, pellentesque nisl.
-
-    
-
-    Pellentesque et varius nisl.
-    In semper eu ante id maximus. Nam eget ex ligula. Cras sapien lorem, placerat
-    sit amet erat vel, commodo consequat turpis. Maecenas suscipit eros turpis, a
-    rutrum ex gravida eget. Aliquam eu aliquet lorem, vitae laoreet arcu. Quisque
-    imperdiet aliquam sodales. Integer quis venenatis nisl, vel scelerisque purus.
-    Praesent fringilla condimentum nisi sit amet iaculis. Aenean consectetur dictum
-    sem. Donec rhoncus tincidunt vestibulum. Sed mattis pharetra lorem, id venenatis
-    felis dictum at.
-
-    
-
-    Phasellus ante tortor, mollis eget dignissim in,
-    tincidunt sodales eros. Nunc pharetra pharetra cursus. Phasellus pretium mi sit
-    amet tortor venenatis, non sodales leo ornare. Integer vel massa ullamcorper,
-    malesuada odio at, tempus quam. Integer sodales varius lectus, at tincidunt massa
-    porta et. Curabitur eget tellus quis nisi posuere egestas. Duis efficitur ullamcorper
-    nisi. Cras vitae aliquet magna. Class aptent taciti sociosqu ad litora torquent
-    per conubia nostra, per inceptos himenaeos. Vestibulum purus orci, tempor ut
-    erat in, commodo maximus nunc. Vestibulum ante ipsum primis in faucibus orci
-    luctus et ultrices posuere cubilia curae; Cras sit amet lacus eget erat lobortis
-    fringilla eu a ex. Nunc laoreet luctus eleifend. Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit.
-
-    
-
-    Curabitur sit amet nulla id metus aliquam
-    suscipit ut vitae arcu. Nam velit metus, euismod quis mi et, fermentum lobortis
-    sem. In pharetra risus eget nisl pellentesque, eget tristique turpis tincidunt.
-    Phasellus lectus nunc, tincidunt sodales auctor quis, mattis in justo. Pellentesque
-    finibus ullamcorper accumsan. Suspendisse nunc nisi, varius eu massa a, fermentum
-    pellentesque velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-    turpis egestas. Phasellus vestibulum finibus odio id malesuada. Donec et odio
-    a elit ultricies elementum a id lectus. Nullam imperdiet enim lacinia magna aliquet,
-    ut eleifend urna eleifend. Maecenas lectus turpis, feugiat consectetur gravida
-    et, viverra blandit erat. Duis lacus tellus, tincidunt nec nisl at, maximus cursus
-    urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-    cubilia curae; Nullam eu arcu sed nunc lobortis efficitur.
-
-    
-
-    Curabitur
-    facilisis non arcu vitae auctor. Vestibulum ante ipsum primis in faucibus orci
-    luctus et ultrices posuere cubilia curae; Morbi nisl nulla, volutpat id sem at,
-    mattis pretium arcu. Mauris gravida, turpis vitae pellentesque aliquam, velit
-    libero viverra elit, et tincidunt leo massa ut metus. Suspendisse mattis, magna
-    congue hendrerit molestie, lacus leo imperdiet nibh, quis tristique nibh lorem
-    auctor libero. Quisque faucibus velit quis mollis euismod. Nam viverra luctus
-    arcu sed aliquam. Mauris vitae aliquam leo. Nulla vehicula, sem vel finibus viverra,
-    eros ex pellentesque enim, a vestibulum nisl odio ac nibh.'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -304,7 +178,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 244
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -328,12 +202,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5260941053619646567}
-    characterCount: 6859
+    characterCount: 18
     spriteCount: 0
-    spaceCount: 1012
-    wordCount: 1003
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 154
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

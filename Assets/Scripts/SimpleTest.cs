@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SimpleTest : MonoBehaviour
 {
-
+    #region Out of use
     [SerializeField]
     private TextMeshProUGUI testTextOne = null;
 
@@ -51,4 +51,5 @@ public class SimpleTest : MonoBehaviour
             //Debug.Log("<color=yellow>File created</color>");
         }
     }
+    #endregion
 }

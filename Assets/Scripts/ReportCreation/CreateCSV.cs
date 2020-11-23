@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class CreateCSV
 {
-
+    #region Out of use
     private static string reportFileName = "report.csv";
 
     #region Interactions
@@ -35,5 +35,6 @@ public static class CreateCSV
     }
 
 
+    #endregion
     #endregion
 }

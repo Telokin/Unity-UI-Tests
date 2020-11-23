@@ -8,99 +8,86 @@ using UnityEngine.UI;
 //[ExecuteInEditMode]
 public class TestUI : MonoBehaviour
 {
-
+    #region SerializedFields
     [SerializeField]
-    private Image inCanvas;
+    private Image image = null;
 
     [SerializeField]
     private GameObject canvas = null;
 
     [SerializeField]
-    private TextMeshProUGUI fpsText = null;
+    private GameObject canvasOut = null;
 
+    [SerializeField]
+    private int amountOfImages;
+
+    [SerializeField]
+    private TextMeshProUGUI testText = null;
+    #endregion
+
+    #region FPS visualization
     float avgFramerate;
-    string display = "{0} FPS";
-
-
-    private Coroutine saveFps = null;
-
+    float startTime;
+    float startFrame;
+    
     // Start is called before the first frame update
 
     void Update()
     {
-        avgFramerate = 1 / Time.unscaledDeltaTime;
-        fpsText.text = string.Format(display, avgFramerate.ToString());
+        
+        //avgFramerate = Time.frameCount / Time.time;
+        //avgFramerate = avgFramerate - (startTime/ startFrame);
+        //Debug.Log(avgFramerate);
     }
-
+    #endregion
 
 
     void Start()
     {
-        saveFps = StartCoroutine(SaveIt());
         //Test();
         //TestTextMeshPro();
         //TestCulling();
-        //Debug.Log(Time.realtimeSinceStartup);
-
+        TestCulling2();
+        startTime = Time.time;
+        startFrame = Time.frameCount;
     }
 
+    #region Tests
     private void Test()
     {
-        //var tempColor = image.color;
-        //tempColor.a = 0;
-        //image.color = tempColor;
-        //Debug.LogWarning(image);
+        var tempColor = image.color;
+        tempColor.a = 0;
+        image.color = tempColor;
     }
 
     private void TestTextMeshPro()
     {
-        //GameObject canvas = GameObject.Find("Canvas");
-        //TextMeshProUGUI hit = Instantiate(testText, transform.position, Quaternion.identity);
-        //hit.transform.SetParent(canvas.transform, false);
-        //hit.transform.position = transform.position;
+        testText = Instantiate(testText, transform.position, Quaternion.identity, canvas.transform);
     }
+
 
     private void TestCulling()
     {
 
-        //if (Time.deltaTime <= 10)
-        //{
+        float x, y, z = 0;
+        for (int i = 0; i <= amountOfImages; i++)
+        {
+            x = UnityEngine.Random.Range(0, 1);
+            y = UnityEngine.Random.Range(0, 1);
+            image = Instantiate(image, new Vector3(x, y, z), Quaternion.identity, canvas.transform);
+        }
+    }
 
-        //        Image hit = Instantiate(inCanvas, transform.position, Quaternion.identity);
-        //        hit.transform.SetParent(canvas.transform, false);
-        //        x = Random.Range(0, 1000);
-        //        y = Random.Range(0, 400);
-        //        z = 0;
-        //        pos = new Vector3(x, y, z);
-        //        hit.transform.position = pos;
-
-
-        //}
+    private void TestCulling2()
+    {
 
         float x, y, z = 0;
-        for (int i = 0; i <= 100; i++)
+        for (int i = 0; i <= amountOfImages; i++)
         {
             x = UnityEngine.Random.Range(-1000, -100);
             y = UnityEngine.Random.Range(0, 1000);
-            inCanvas = Instantiate(inCanvas, new Vector3(x, y, z), Quaternion.identity, canvas.transform);
+            image = Instantiate(image, new Vector3(x, y, z), Quaternion.identity, canvasOut.transform);
         }
     }
-
-    private IEnumerator SaveIt()
-    {
-        int i = 0;
-
-        for(i=0; i<=100; i++)
-        {
-            yield return new WaitForSeconds(5);
-            // Save current fps in csv file
-        }
-
-        yield return null;
-    }
-
-    
-
-
-
+    #endregion
 }
