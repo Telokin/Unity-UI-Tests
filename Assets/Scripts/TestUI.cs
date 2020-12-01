@@ -13,7 +13,14 @@ public class TestUI : MonoBehaviour
     private Image image = null;
 
     [SerializeField]
-    private GameObject canvas = null;
+    public GameObject alphaZeroCanvas = null;
+
+    [SerializeField]
+    public GameObject textCanvas = null;
+
+    [SerializeField]
+    public GameObject cullingInCanvas = null;
+
 
     [SerializeField]
     private GameObject canvasOut = null;
@@ -23,65 +30,51 @@ public class TestUI : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI testText = null;
+
     #endregion
+    private float x, y, z = 0;
 
-    #region FPS visualization
-    float avgFramerate;
-    float startTime;
-    float startFrame;
-    
-    // Start is called before the first frame update
-
-    void Update()
+    private void Start()
     {
-        
-        //avgFramerate = Time.frameCount / Time.time;
-        //avgFramerate = avgFramerate - (startTime/ startFrame);
-        //Debug.Log(avgFramerate);
-    }
-    #endregion
-
-
-    void Start()
-    {
-        //Test();
-        //TestTextMeshPro();
-        //TestCulling();
-        TestCulling2();
-        startTime = Time.time;
-        startFrame = Time.frameCount;
+        Test();
     }
 
     #region Tests
-    private void Test()
+    public void Test()
     {
         var tempColor = image.color;
         tempColor.a = 0;
         image.color = tempColor;
-    }
-
-    private void TestTextMeshPro()
-    {
-        testText = Instantiate(testText, transform.position, Quaternion.identity, canvas.transform);
-    }
-
-
-    private void TestCulling()
-    {
-
-        float x, y, z = 0;
         for (int i = 0; i <= amountOfImages; i++)
         {
-            x = UnityEngine.Random.Range(0, 1);
-            y = UnityEngine.Random.Range(0, 1);
-            image = Instantiate(image, new Vector3(x, y, z), Quaternion.identity, canvas.transform);
+            x = UnityEngine.Random.Range(0, 600);
+            y = UnityEngine.Random.Range(0, 300);
+            image = Instantiate(image, new Vector3(x, y, z), Quaternion.identity, alphaZeroCanvas.transform);
         }
     }
 
-    private void TestCulling2()
+    public void TestTextMeshPro()
+    {
+        testText = Instantiate(testText, transform.position, Quaternion.identity, textCanvas.transform);
+    }
+
+
+    public void TestCulling()
     {
 
-        float x, y, z = 0;
+
+        for (int i = 0; i <= amountOfImages; i++)
+        {
+            x = UnityEngine.Random.Range(0, 600);
+            y = UnityEngine.Random.Range(0, 300);
+            image = Instantiate(image, new Vector3(x, y, z), Quaternion.identity, cullingInCanvas.transform);
+        }
+    }
+
+    public void TestCulling2()
+    {
+
+        
         for (int i = 0; i <= amountOfImages; i++)
         {
             x = UnityEngine.Random.Range(-1000, -100);
